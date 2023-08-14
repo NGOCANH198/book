@@ -614,7 +614,10 @@ footer .header {
     margin-bottom: 13px;
 }
 /* het css cho footer  */
-
+.avatar {
+    width: 30px;
+	border-radius: 100%;
+}
 
 @media (max-width:767px){
     .navbar form .input-group{

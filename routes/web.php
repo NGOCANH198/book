@@ -49,6 +49,8 @@ Route::namespace('Client')->prefix('/')->group(function () {
     Route::get('/add-wishlist', 'ProductController@addWishlist');
     Route::get('/delete-wishlist/{id}', 'ProductController@deleteWishlist')->name('delete.wishlist');
     Route::get('/get-product/{id}', 'ProductController@getProduct');
+    Route::get('oauth/{driver}', 'SocialController@redirectToProvider')->name('client.social.oauth');
+    Route::get('oauth/{driver}/callback', 'SocialController@handleProviderCallback')->name('client.social.callback');
 });
 
 // Admin

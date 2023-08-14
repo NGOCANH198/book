@@ -118,10 +118,16 @@
                     @else
                         <div class="dropdown">
                             <li class="nav-item account" type="button" class="btn dropdown" data-toggle="dropdown">
-                                <a href="#" class="btn btn-secondary rounded-circle">
-                                    <i class="fa fa-user"></i>
-                                </a>
-                                <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">Xin chào, {{ Auth::user()->name }}</a>
+                                @if (empty(Auth::user()->avatar))
+                                    <a href="#" class="btn btn-secondary rounded-circle">
+                                        <i class="fa fa-user"></i>
+                                    </a>
+                                @else
+                                    <a href="#">
+                                        <img src="{{ Auth::user()->avatar }}" class="avatar">
+                                    </a>
+                                @endif
+                                <a class="nav-link text-dark" href="#" style="display:inline-block">Hi, {{ Auth::user()->name }}</a>
                             </li>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item nutdangky text-center mb-2" href="{{ route('auth.change.account') }}">Thông tin cá nhân</a>
@@ -241,6 +247,9 @@
 
                         <button class="btn btn-lg btn-block btn-signin text-uppercase text-white" type="submit"
                             style="background: #F5A623">Đăng nhập</button>
+                        <a href="{{ route('client.social.oauth', ['driver' => 'google']) }}" class="btn btn-lg btn-block btn-signin text-uppercase text-white" style="background: #ea4335">
+                            <i class="fab fa-google mr-2"></i> Đăng nhập với Google
+                        </a>
                     </form>
                 </div>
             </div>
