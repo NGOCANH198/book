@@ -44,8 +44,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', '2022-05-20 15:30:26', '$2y$10$YVJBKUvysXjPCtHed8CjYuCwA2oLT4Ww3v2hQa6JmaEUwo/diJ1yq', 0, 'iE5DWJJXNrYUdzeyYLHgXgb7goRjmNjCdIbP7OVpkYD8C3OAROFHqJzivqxq', '2022-05-20 15:30:26', '2022-05-20 15:30:26'),
-(2, 'Nguyễn Văn A', 'nv@gmail.com', NULL, '$2y$10$EOoI07D7GHAKx3Rz9gRac.0jUFBDdl0m6Moo7hI5u/Ih1DNE.nGoS', 1, 'E5NXeXnNNiQJdU4QYxhK9oTUb4bKGLkOVicLnNgukBtIjobDjVN4BOvl06TE', '2022-06-10 19:31:53', '2022-12-23 16:49:15');
+(1, 'admin', 'admin@gmail.com', '2023-05-20 15:30:26', '$2y$10$YVJBKUvysXjPCtHed8CjYuCwA2oLT4Ww3v2hQa6JmaEUwo/diJ1yq', 0, 'iE5DWJJXNrYUdzeyYLHgXgb7goRjmNjCdIbP7OVpkYD8C3OAROFHqJzivqxq', '2023-05-20 15:30:26', '2023-05-20 15:30:26'),
+(2, 'Nguyễn Văn A', 'nv@gmail.com', NULL, '$2y$10$EOoI07D7GHAKx3Rz9gRac.0jUFBDdl0m6Moo7hI5u/Ih1DNE.nGoS', 1, 'E5NXeXnNNiQJdU4QYxhK9oTUb4bKGLkOVicLnNgukBtIjobDjVN4BOvl06TE', '2023-06-10 19:31:53', '2023-12-23 16:49:15');
 
 -- --------------------------------------------------------
 
@@ -65,9 +65,9 @@ CREATE TABLE `authors` (
 --
 
 INSERT INTO `authors` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Tác giả 1', '2022-05-20 15:54:42', '2022-05-20 15:54:42'),
-(2, 'Tác giả 2', '2022-05-20 15:55:04', '2022-05-20 15:55:04'),
-(3, 'Tác giả 3', '2022-12-23 17:00:56', '2022-12-23 17:00:56');
+(1, 'Tác giả 1', '2023-05-20 15:54:42', '2023-05-20 15:54:42'),
+(2, 'Tác giả 2', '2023-05-20 15:55:04', '2023-05-20 15:55:04'),
+(3, 'Tác giả 3', '2023-12-23 17:00:56', '2023-12-23 17:00:56');
 
 -- --------------------------------------------------------
 
@@ -87,9 +87,9 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Hãng 1', '2022-05-20 15:51:58', '2022-05-20 15:51:58'),
-(2, 'Hãng 2', '2022-05-20 15:52:17', '2022-05-20 15:52:17'),
-(3, 'Hãng 3', '2022-12-23 17:00:45', '2022-12-23 17:00:45');
+(1, 'Hãng 1', '2023-05-20 15:51:58', '2023-05-20 15:51:58'),
+(2, 'Hãng 2', '2023-05-20 15:52:17', '2023-05-20 15:52:17'),
+(3, 'Hãng 3', '2023-12-23 17:00:45', '2023-12-23 17:00:45');
 
 -- --------------------------------------------------------
 
@@ -111,12 +111,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `url`, `parent_category_id`, `created_at`, `updated_at`) VALUES
-(1, 'Danh mục con 1', 'storage/images/categories/image_183237.jpg', 1, '2022-05-20 15:45:16', '2022-05-20 15:45:16'),
-(2, 'Danh mục con 2', 'storage/images/categories/bo-sach-500-cau-chuyen-dao-duc.jpg', 2, '2022-05-21 18:31:14', '2022-05-21 18:31:14'),
-(3, 'Danh mục con 3', 'storage/images/categories/bo-sach-nhung-cau-chuyen-cho-con-thanh-nguoi-tu-te.jpg', 2, '2022-05-21 18:32:53', '2022-05-21 18:32:53'),
-(4, 'Danh mục con 4', 'storage/images/categories/image_183237.jpg', 1, '2022-05-20 15:45:16', '2022-05-20 15:45:16'),
-(5, 'Danh mục con 5', 'storage/images/categories/image_183237.jpg', 1, '2022-05-20 15:45:16', '2022-05-20 15:45:16'),
-(6, 'Danh mục con 1', 'storage/images/categories/image_195509_1_29257.jpg', 4, '2022-12-23 17:00:20', '2022-12-23 17:00:20');
+(1, 'Danh mục con 1', 'storage/images/categories/image_183237.jpg', 1, '2023-05-20 15:45:16', '2923-05-20 15:45:16'),
+(2, 'Danh mục con 2', 'storage/images/categories/bo-sach-500-cau-chuyen-dao-duc.jpg', 2, '2023-05-21 18:31:14', '2023-05-21 18:31:14'),
+(3, 'Danh mục con 3', 'storage/images/categories/bo-sach-nhung-cau-chuyen-cho-con-thanh-nguoi-tu-te.jpg', 2, '2023-05-21 18:32:53', '2023-05-21 18:32:53'),
+(4, 'Danh mục con 4', 'storage/images/categories/image_183237.jpg', 1, '2023-05-20 15:45:16', '2023-05-20 15:45:16'),
+(5, 'Danh mục con 5', 'storage/images/categories/image_183237.jpg', 1, '2023-05-20 15:45:16', '2023-05-20 15:45:16'),
+(6, 'Danh mục con 1', 'storage/images/categories/image_195509_1_29257.jpg', 4, '2023-12-23 17:00:20', '2023-12-23 17:00:20');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `user_id`, `product_id`, `content`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Sách đọc rất hay', '2022-06-16 08:56:37', '2022-06-16 08:56:37');
+(1, 1, 1, 'Sách đọc rất hay', '2023-06-16 08:56:37', '2023-06-16 08:56:37');
 
 -- --------------------------------------------------------
 
@@ -176,13 +176,13 @@ CREATE TABLE `medias` (
 --
 
 INSERT INTO `medias` (`id`, `url`, `imageable_id`, `imageable_type`, `created_at`, `updated_at`) VALUES
-(1, 'storage/images/products/lap-ke-hoach-kinh-doanh-hieu-qua.jpg', 1, 'App\\Models\\Product', '2022-05-21 18:26:41', '2022-05-21 18:26:41'),
-(2, 'storage/images/products/lap-ke-hoach-kinh-doanh-hieu-qua-ms.jpg', 1, 'App\\Models\\Product', '2022-05-21 18:26:41', '2022-05-21 18:26:41'),
-(3, 'storage/images/products/bank-4.0.jpg', 2, 'App\\Models\\Product', '2022-05-21 18:28:17', '2022-05-21 18:28:17'),
-(4, 'storage/images/products/combo-dinh-duong-than-duoc-xanh.jpg', 3, 'App\\Models\\Product', '2022-05-21 18:33:56', '2022-05-21 18:33:56'),
-(6, 'storage/images/products/ma-bun-luu-manh.jpg', 4, 'App\\Models\\Product', '2022-05-21 18:58:59', '2022-05-21 18:58:59'),
-(7, 'storage/images/products/lich-su-the-gioi.jpg', 1, 'App\\Models\\Product', '2022-05-27 10:27:20', '2022-05-27 10:27:20'),
-(8, 'storage/images/products/9786040288271.jpg', 5, 'App\\Models\\Product', '2022-12-23 17:03:06', '2022-12-23 17:03:06');
+(1, 'storage/images/products/lap-ke-hoach-kinh-doanh-hieu-qua.jpg', 1, 'App\\Models\\Product', '2023-05-21 18:26:41', '2023-05-21 18:26:41'),
+(2, 'storage/images/products/lap-ke-hoach-kinh-doanh-hieu-qua-ms.jpg', 1, 'App\\Models\\Product', '2023-05-21 18:26:41', '2023-05-21 18:26:41'),
+(3, 'storage/images/products/bank-4.0.jpg', 2, 'App\\Models\\Product', '2023-05-21 18:28:17', '2023-05-21 18:28:17'),
+(4, 'storage/images/products/combo-dinh-duong-than-duoc-xanh.jpg', 3, 'App\\Models\\Product', '2023-05-21 18:33:56', '2023-05-21 18:33:56'),
+(6, 'storage/images/products/ma-bun-luu-manh.jpg', 4, 'App\\Models\\Product', '2023-05-21 18:58:59', '2023-05-21 18:58:59'),
+(7, 'storage/images/products/lich-su-the-gioi.jpg', 1, 'App\\Models\\Product', '2023-05-27 10:27:20', '2023-05-27 10:27:20'),
+(8, 'storage/images/products/9786040288271.jpg', 5, 'App\\Models\\Product', '2023-12-23 17:03:06', '2023-12-23 17:03:06');
 
 -- --------------------------------------------------------
 
@@ -205,21 +205,21 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_05_20_132229_create_admins_table', 1),
-(6, '2022_05_20_132330_create_parent_categories_table', 1),
-(7, '2022_05_20_132406_create_categories_table', 1),
-(8, '2022_05_20_132702_create_suppliers_table', 1),
-(9, '2022_05_20_133025_create_brands_table', 1),
-(10, '2022_05_20_133026_create_authors_table', 1),
-(11, '2022_05_20_133057_create_products_table', 1),
-(12, '2022_05_20_133738_create_vouchers_table', 1),
-(13, '2022_05_20_134018_create_comments_table', 1),
-(14, '2022_05_20_134027_create_replies_table', 1),
-(15, '2022_05_20_134409_create_ratings_table', 1),
-(16, '2022_05_20_134455_create_orders_table', 1),
-(17, '2022_05_20_134502_create_order_details_table', 1),
-(18, '2022_05_20_134629_create_setting_table', 1),
-(19, '2022_05_20_210939_create_medias_table', 1);
+(5, '2023_05_20_132229_create_admins_table', 1),
+(6, '2023_05_20_132330_create_parent_categories_table', 1),
+(7, '2023_05_20_132406_create_categories_table', 1),
+(8, '2023_05_20_132702_create_suppliers_table', 1),
+(9, '2023_05_20_133025_create_brands_table', 1),
+(10, '2023_05_20_133026_create_authors_table', 1),
+(11, '2023_05_20_133057_create_products_table', 1),
+(12, '2023_05_20_133738_create_vouchers_table', 1),
+(13, '2023_05_20_134018_create_comments_table', 1),
+(14, '2023_05_20_134027_create_replies_table', 1),
+(15, '2023_05_20_134409_create_ratings_table', 1),
+(16, '2023_05_20_134455_create_orders_table', 1),
+(17, '2023_05_20_134502_create_order_details_table', 1),
+(18, '2023_05_20_134629_create_setting_table', 1),
+(19, '2023_05_20_210939_create_medias_table', 1);
 
 -- --------------------------------------------------------
 
@@ -285,10 +285,10 @@ CREATE TABLE `parent_categories` (
 --
 
 INSERT INTO `parent_categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Danh mục cha 1', '2022-05-20 15:30:28', '2022-05-20 15:30:28'),
-(2, 'Danh mục cha 2', '2022-05-20 15:31:05', '2022-05-20 15:31:05'),
-(3, 'Danh mục cha 3', '2022-05-21 18:30:46', '2022-05-21 18:30:46'),
-(4, 'Danh mục cha 4', '2022-12-23 16:59:10', '2022-12-23 16:59:10');
+(1, 'Danh mục cha 1', '2023-05-20 15:30:28', '2023-05-20 15:30:28'),
+(2, 'Danh mục cha 2', '2023-05-20 15:31:05', '2023-05-20 15:31:05'),
+(3, 'Danh mục cha 3', '2023-05-21 18:30:46', '2023-05-21 18:30:46'),
+(4, 'Danh mục cha 4', '2023-12-23 16:59:10', '2023-12-23 16:59:10');
 
 -- --------------------------------------------------------
 
@@ -355,11 +355,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `category_id`, `brand_id`, `supplier_id`, `author_id`, `description`, `qty`, `qty_buy`, `public_date`, `size`, `cover`, `page`, `status`, `created_at`, `updated_at`, `start_date`, `end_date`, `sale_price`, `type`) VALUES
-(1, 'Sách 1', 200000, 1, 1, 1, 1, NULL, 98, 2, '2022-05-18', '20.5 x 13.5 cm', 'Bìa mềm', 1, 1, '2022-05-21 18:26:41', '2022-06-16 04:37:39', NULL, NULL, NULL, 0),
-(2, 'Sản phẩm 2', 150000, 1, 1, 1, 2, NULL, 177, 23, '2022-05-10', NULL, NULL, 1, 1, '2022-05-21 18:28:17', '2023-04-03 09:57:21', NULL, NULL, NULL, 0),
-(3, 'Sản phẩm 3', 100000, 3, 2, 1, 2, NULL, 96, 4, '2022-05-11', NULL, NULL, 1, 1, '2022-05-21 18:33:56', '2022-12-23 16:54:42', NULL, NULL, NULL, 0),
-(4, 'Sách 5', 200000, 3, 1, 1, 2, NULL, 94, 6, '2022-05-25', NULL, NULL, 1, 1, '2022-05-21 18:55:52', '2023-04-16 03:42:08', NULL, NULL, NULL, 0),
-(5, 'Sách tiếng anh', 80000, 6, 1, 1, 1, '<p>Đây là sách tiếng anh</p>', 200, 0, '2022-12-25', NULL, NULL, 1, 1, '2022-12-23 17:03:06', '2022-12-23 17:03:06', NULL, NULL, NULL, 0);
+(1, 'Sách 1', 200000, 1, 1, 1, 1, NULL, 98, 2, '2023-05-18', '20.5 x 13.5 cm', 'Bìa mềm', 1, 1, '2023-05-21 18:26:41', '2023-06-16 04:37:39', NULL, NULL, NULL, 0),
+(2, 'Sản phẩm 2', 150000, 1, 1, 1, 2, NULL, 177, 23, '2023-05-10', NULL, NULL, 1, 1, '2023-05-21 18:28:17', '2023-04-03 09:57:21', NULL, NULL, NULL, 0),
+(3, 'Sản phẩm 3', 100000, 3, 2, 1, 2, NULL, 96, 4, '2023-05-11', NULL, NULL, 1, 1, '2023-05-21 18:33:56', '2023-12-23 16:54:42', NULL, NULL, NULL, 0),
+(4, 'Sách 5', 200000, 3, 1, 1, 2, NULL, 94, 6, '2023-05-25', NULL, NULL, 1, 1, '2023-05-21 18:55:52', '2023-04-16 03:42:08', NULL, NULL, NULL, 0),
+(5, 'Sách tiếng anh', 80000, 6, 1, 1, 1, '<p>Đây là sách tiếng anh</p>', 200, 0, '2023-12-25', NULL, NULL, 1, 1, '2023-12-23 17:03:06', '2023-12-23 17:03:06', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -381,9 +381,9 @@ CREATE TABLE `ratings` (
 --
 
 INSERT INTO `ratings` (`id`, `user_id`, `product_id`, `star`, `created_at`, `updated_at`) VALUES
-(1, 1, 3, 4, '2022-06-16 08:01:07', '2022-06-16 08:01:07'),
-(2, 1, 3, 2, '2022-06-16 08:12:35', '2022-06-16 08:12:35'),
-(3, 1, 1, 5, '2022-06-16 08:14:42', '2022-06-16 08:14:42'),
+(1, 1, 3, 4, '2023-06-16 08:01:07', '2023-06-16 08:01:07'),
+(2, 1, 3, 2, '2023-06-16 08:12:35', '2023-06-16 08:12:35'),
+(3, 1, 1, 5, '2023-06-16 08:14:42', '2023-06-16 08:14:42'),
 (5, 1, 2, 4, '2023-04-03 09:56:08', '2023-04-03 09:56:08');
 
 -- --------------------------------------------------------
@@ -406,8 +406,8 @@ CREATE TABLE `replies` (
 --
 
 INSERT INTO `replies` (`id`, `comment_id`, `name`, `content`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Liêu Hy Quỳnh', '+1', '2022-06-16 10:28:45', '2022-06-16 10:28:45'),
-(2, 1, 'admin', 'Dạ cảm ơn quý khách đã quan tâm đến shop của chúng tôi', '2022-06-16 10:38:40', '2022-06-16 10:38:40');
+(1, 1, 'Liêu Hy Quỳnh', '+1', '2023-06-16 10:28:45', '2023-06-16 10:28:45'),
+(2, 1, 'admin', 'Dạ cảm ơn quý khách đã quan tâm đến shop của chúng tôi', '2023-06-16 10:38:40', '2023-06-16 10:38:40');
 
 -- --------------------------------------------------------
 
@@ -430,7 +430,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`id`, `title`, `email`, `tel`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'DealBook.xyz', 'DealBook.xyz@gmail.com', '+01 23.456.789', 'TP.HCM', '2022-05-20 15:30:26', '2022-05-21 18:44:04');
+(1, 'DealBook.xyz', 'DealBook.xyz@gmail.com', '+01 23.456.789', 'TP.HCM', '2023-05-20 15:30:26', '2023-05-21 18:44:04');
 
 -- --------------------------------------------------------
 
@@ -450,8 +450,8 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Nxb 1', '2022-05-20 15:57:17', '2022-05-20 15:57:17'),
-(2, 'Nxb 2', '2022-12-23 17:01:06', '2022-12-23 17:01:06');
+(1, 'Nxb 1', '2023-05-20 15:57:17', '2023-05-20 15:57:17'),
+(2, 'Nxb 2', '2023-12-23 17:01:06', '2023-12-23 17:01:06');
 
 -- --------------------------------------------------------
 
@@ -477,7 +477,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `remember_token`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'Test', 'test@gmail.com', NULL, '$2y$10$OCnQ7PvpxDSD942T1OmjIOdB8CLV3V4a9GPqDrQpxdqqhoWDzdNNe', '0123456789', 'pwyxKbHyZMMJwdLCkvxk97WCeuXlMABvpxkvHxmeSvSi8hm6XQRlRE7MO14G', '2022-05-21 19:05:39', '2022-12-23 16:47:37', 1);
+(1, 'Test', 'test@gmail.com', NULL, '$2y$10$OCnQ7PvpxDSD942T1OmjIOdB8CLV3V4a9GPqDrQpxdqqhoWDzdNNe', '0123456789', 'pwyxKbHyZMMJwdLCkvxk97WCeuXlMABvpxkvHxmeSvSi8hm6XQRlRE7MO14G', '2023-05-21 19:05:39', '2023-12-23 16:47:37', 1);
 
 -- --------------------------------------------------------
 
@@ -498,8 +498,8 @@ CREATE TABLE `vouchers` (
 --
 
 INSERT INTO `vouchers` (`code`, `price`, `qty`, `created_at`, `updated_at`) VALUES
-('km1', 100000, 99, '2022-06-16 04:22:42', '2022-06-16 04:37:38'),
-('km2', 50000, 200, '2022-06-16 04:23:30', '2022-06-16 04:23:30');
+('km1', 100000, 99, '2023-06-16 04:22:42', '2023-06-16 04:37:38'),
+('km2', 50000, 200, '2023-06-16 04:23:30', '2023-06-16 04:23:30');
 
 --
 -- Indexes for dumped tables
