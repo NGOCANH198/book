@@ -15,6 +15,7 @@ use App\Models\Rating;
 use App\Models\Comment;
 use App\Models\Reply;
 use App\Models\Wishlist;
+use Illuminate\Support\Facades\Event;
 
 class ProductController extends Controller
 {
@@ -46,6 +47,7 @@ class ProductController extends Controller
         $rating = round($rating);
         $comments = Comment::where('product_id',$id)->join('users','users.id','=','comments.user_id')->get(['comments.*','users.name']);
         $replies = Reply::all();
+        Event::dispatch('product.view', $product);
         return view('client.product-detail', compact('product', 'comments', 'replies', 'rating'));
     }
 

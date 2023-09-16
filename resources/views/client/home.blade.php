@@ -46,6 +46,52 @@
 @endsection
 
 @section('content')
+    <!-- div _1khoi -- khoi sachnendoc -->
+    @if ($recommendProducts->count() > 0)
+    <!-- khoi sach moi  -->
+    <section class="_1khoi sachmoi bg-white">
+        <div class="container">
+            <div class="noidung" style=" width: 100%;">
+                <div class="row">
+                    <!--header-->
+                    <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
+                        <h1 class="header text-uppercase" style="font-weight: 400;">GỢI Ý HÔM NAY</h1>
+                    </div>
+                </div>
+                <div class="khoisanpham" style="padding-bottom: 2rem;">
+                    @foreach ($recommendProducts as $product)
+                        <!-- 1 san pham -->
+                        <div class="card product">
+                            <a href="{{ route('product.detail', ['id' => $product->id]) }}" class="motsanpham"
+                                style="text-decoration: none; color: black;" data-toggle="tooltip"
+                                data-placement="bottom" title="{{ $product->name }}">
+                                <img class="card-img-top anh" src="{{ asset(@$product->image->first()->url) }}"
+                                    alt="{{ $product->name }}">
+                                <div class="card-body noidungsp mt-3">
+                                    <h3 class="card-title ten">{{ $product->name }}</h3>
+                                    <small class="tacgia text-muted">{{ $product->author_name }}</small>
+                                    <div class="gia d-flex align-items-baseline">
+                                        @if (strtotime(date('Y-m-d')) < strtotime($product->start_date) ||
+                                                strtotime(date('Y-m-d')) > strtotime($product->end_date))
+                                            <div class="giamoi">{{ number_format($product->price, -3, ',', ',') }} VND
+                                            </div>
+                                        @else
+                                            <div class="giamoi">{{ number_format($product->sale_price, -3, ',', ',') }}
+                                                VND</div>
+                                            <small class="text-secondary"><del>{{ number_format($product->price, -3, ',', ',') }}
+                                                    VND</del></small>
+                                        @endif
+                                    </div>
+                                </div>
+                            </a>
+                            <i class="fa-solid fa-eye btn-open-modal" data-product-id="{{ $product->id }}"></i>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+    @endif
     @foreach ($parentCategories as $parentCategory)
         @php
             $products = \App\Models\Product::join('categories', 'products.category_id', '=', 'categories.id')
