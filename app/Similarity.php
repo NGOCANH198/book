@@ -4,6 +4,7 @@ namespace App;
 
 class Similarity
 {
+    // Tính điểm tương đồng dựa trên số thuộc tính của sản phẩm
     public static function hamming($productA, $productB, $returnDistance = false)
     {
         $distance = count(array_diff_assoc($productA, $productB));
@@ -14,6 +15,7 @@ class Similarity
         return (count($productA) - $distance) / count($productA);
     }
 
+    // Tính điểm tương đồng dựa trên giá sản phẩm
     public static function euclidean($array1, $array2, $returnDistance = false)
     {
         $a   = $array1;
@@ -35,6 +37,7 @@ class Similarity
         return 1 - $distance;
     }
 
+    // Tính điểm tương đồng dựa trên danh mục sản phẩm
     public static function jaccard($string1, $string2, $separator = ',')
     {
         $a            = explode($separator, $string1);

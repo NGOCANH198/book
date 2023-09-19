@@ -18,6 +18,7 @@ class ProductSimilarity
         $this->priceHighRange = max(array_column($products, 'price'));
     }
 
+    // Tính điểm tương đồng cho từng sản phẩm
     public function calculateSimilarityMatrix()
     {
         $matrix = [];
@@ -37,12 +38,13 @@ class ProductSimilarity
         return $matrix;
     }
 
+    // Lấy ra danh sách sản phẩm có điểm tương đồng > 0.5 (tương đồng tầm 50% trở đi)
     public function getProductsSortedBySimilarity($productId, $matrix)
-    {
+    {   
         $similarities = $matrix['product_id_' . $productId];
         $sortedProducts = collect();
         foreach ($similarities as $k => $v) {
-            if ($v > 0.5) {
+            if ($v > 0.6) {
                 $sortedProducts->add(Product::find(intval(str_replace('product_id_', '', $k))));
             }
         }
@@ -50,6 +52,7 @@ class ProductSimilarity
         return $sortedProducts;
     }
 
+    // Hàm tính điểm tương đồng
     protected function calculateSimilarityScore($productA, $productB)
     {
         return array_sum([

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 14, 2023 lúc 06:56 PM
+-- Thời gian đã tạo: Th9 19, 2023 lúc 10:51 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 7.4.33
 
@@ -126,6 +126,13 @@ CREATE TABLE `comments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `comments`
+--
+
+INSERT INTO `comments` (`id`, `user_id`, `product_id`, `content`, `created_at`, `updated_at`) VALUES
+(3, 2, 9, 'aa', '2023-09-08 17:01:21', '2023-09-08 17:01:21');
+
 -- --------------------------------------------------------
 
 --
@@ -212,7 +219,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2022_05_20_134629_create_setting_table', 1),
 (19, '2022_05_20_210939_create_medias_table', 1),
 (20, '2023_05_13_224447_create_wishlists_table', 2),
-(21, '2023_08_14_233527_add_google_columns_to_users_table', 3);
+(21, '2023_08_14_233527_add_google_columns_to_users_table', 3),
+(22, '2023_09_19_153305_create_user_click_products_table', 4);
 
 -- --------------------------------------------------------
 
@@ -238,7 +246,9 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `user_id`, `voucher_code`, `total`, `address`, `status`, `created_at`, `updated_at`) VALUES
 ('order_61HmyVlsVmKOKoFZ1ljUx1xW', 1, 'km1', 2100000, 'Hà Nội', 2, '2023-07-19 04:50:16', '2023-07-19 05:00:05'),
 ('order_9qZcmXD2ADDUvFs9Gc8bMX8V', 1, NULL, 200000, 'TPHCM', 0, '2023-04-16 03:42:08', '2023-04-16 03:42:08'),
+('order_KE6WaypKvlXW2FcJ2eOn4j26', 2, NULL, 104000, 'Ha Noi', 2, '2023-09-16 02:35:40', '2023-09-16 02:39:24'),
 ('order_UnjwzF65FEZqNCKoy0Owupfk', 2, NULL, 100000, 'Hà Nội', 0, '2023-07-30 02:10:57', '2023-07-30 02:10:57'),
+('order_vWTy8jN5J0px0I19xcyCI22n', 2, NULL, 104000, 'aaa', 0, '2023-08-21 07:23:14', '2023-08-21 07:23:14'),
 ('order_Y2pQ5FY9ZYWOSotKUP0lfFqr', 2, NULL, 620000, 'aaaaaaaaa', 1, '2023-08-12 02:26:55', '2023-08-12 02:36:30');
 
 -- --------------------------------------------------------
@@ -262,7 +272,9 @@ CREATE TABLE `order_details` (
 
 INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `qty`, `created_at`, `updated_at`) VALUES
 (18, 'order_Y2pQ5FY9ZYWOSotKUP0lfFqr', 10, 2, '2023-08-12 02:26:55', '2023-08-12 02:26:55'),
-(19, 'order_Y2pQ5FY9ZYWOSotKUP0lfFqr', 9, 1, '2023-08-12 02:26:56', '2023-08-12 02:26:56');
+(19, 'order_Y2pQ5FY9ZYWOSotKUP0lfFqr', 9, 1, '2023-08-12 02:26:56', '2023-08-12 02:26:56'),
+(20, 'order_vWTy8jN5J0px0I19xcyCI22n', 9, 1, '2023-08-21 07:23:14', '2023-08-21 07:23:14'),
+(21, 'order_KE6WaypKvlXW2FcJ2eOn4j26', 9, 1, '2023-09-16 02:35:41', '2023-09-16 02:35:41');
 
 -- --------------------------------------------------------
 
@@ -354,7 +366,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `name`, `price`, `category_id`, `brand_id`, `supplier_id`, `author_id`, `description`, `qty`, `qty_buy`, `public_date`, `size`, `cover`, `page`, `status`, `created_at`, `updated_at`, `start_date`, `end_date`, `sale_price`, `type`) VALUES
 (8, 'Thay đổi một suy nghĩ - Thay đổi cả cuộc đời', 200000, 7, 4, 3, 4, 'Sách: Thay Đổi Một Suy Nghĩ Thay Đổi Cả Cuộc Đời\r\nMã sản phẩm: 8936067604191\r\nTác giả : Hoàng Khải Đoàn\r\nDịch giả :Phương Linh\r\nNXB: NXB Thanh Niên\r\nKích thước : 16x23 cm\r\nNăm xuất bản : 2021\r\nSố trang : 400\r\nKhối lượng : 400 grams\r\nBìa : bìa mềm', 10, 0, '2002-10-09', '16x23 cm', 'Bìa mềm', 400, 1, '2023-08-04 15:50:53', '2023-08-04 15:50:53', '2023-08-08', '2023-09-08', 128000, 1),
-(9, 'Khéo Ăn Nói Sẽ Có Được Thiên Hạ (Tái Bản)', 104000, 7, 4, 6, 6, 'Trong xã hội thông tin hiện đại, sự im lặng không còn là vàng nữa, nếu không biết cách giao tiếp thì dù là vàng cũng sẽ bị chôn vùi. Trong cuộc đời một con người, từ xin việc đến thăng tiến, từ tình yêu đến hôn nhân, từ tiếp thị cho đến đàm phán, từ xã giao đến làm việc… không thể không cần đến kĩ năng và khả năng giao tiếp. Khéo ăn khéo nói thì đi đâu, làm gì cũng gặp thuận lợi. Không khéo ăn nói, bốn bề đều là trở ngại khó khăn.\r\n \r\n\r\nĐã bao giờ đánh mất một công việc, bạn bỏ lỡ một mối quan hệ tuyệt vời, hay đơn giản là bạn cảm thấy khó nói chuyện với mọi người. Bạn có bao giờ nghĩ là do kĩ năng nói chuyện của mình chưa tốt, chưa thuyết phục được mọi người. Bạn đổ lỗi cho số phận và vận may của mình chưa đến. Hãy dừng việc than thân trách phận và hành động để thay đòi chính mình.\r\n\r\n \r\n\r\nVậy làm thế nào để cải thiện và tránh gặp phải những tình huống như trên? Làm thế nào để ăn nói khéo léo? Có phương pháp và quy luật nào được áp dụng khi giao tiếp không? Có nguyên tắc và bí quyết nào cho các cuộc nói chuyện không? Trong những tình huống khác nhau, với những người khác nhau thì phải nói chuyện như thế nào, và làm sao để trình bày những điều khó nói?  \r\n\r\n \r\n\r\nCuốn sách Khéo ăn nói sẽ có được thiên hạ của Trác Nhã sẽ giải đáp cho bạn đọc những câu hỏi đó. Cuốn sách với ngôn từ rõ ràng, gần gũi với cuộc sống sẽ mang đến những kĩ năng và phương pháp giao tiếp thực dụng, chắc chắn sẽ giúp ích được cho bạn đọc.\r\n\r\n \r\n\r\nGiá trị của cuốn sách nằm ở chỗ tác giả đã dốc hết tâm sức nghiên cứu về các kĩ năng và quy tắc giao tiếp để đúc kết, truyền tải vào trong những trang sách khiến cho người đọc cảm thấy cuốn hút, và học hỏi được nhiều kĩ năng giúp cho bạn đọc tự tin và thành công trong việc giao tiếp.\r\n\r\n \r\n\r\nXây dựng mối quan hệ nhờ tài ăn nói\r\nTừ trước đến nay, trong xã hội, giao tiếp đang là một trong những điều mà ai cũng phải đối mặt, đặc biệt là các bạn trẻ, những bạn đang bước chân đang cần chứng tỏ năng lực của mình trước cuộc sống, mọi người. Chúng ta ngày càng phải giao tiếp với rất nhiều người. Sử dụng ngôn ngữ khéo léo, thân thiện chính là cách quan trọng nhất để xóa bỏ tâm lí đề phòng của đối phương và rút ngắn khoảng cách giữa hai bên, giúp cho mọi người tin tưởng bạn hơn và từ đó sẵn sàng giúp đỡ bạn trong công việc và học  tập.\r\n\r\n \r\n\r\nHơn nữa để thành công, bạn không được bỏ qua một mối quan hệ nào trong xã hội, mỗi một người đến và đi trong cuộc đời bạn đều có thể cho bạn nhiều bài học, kinh nghiệm quý báu mà nó sẽ chắc chắn sẽ giúp ích cho bạn trong cuộc đời. Điều quan trọng là bạn phải ăn nói, giao tiếp như nào để người đó yêu quý bạn và sẵn sàng chia sẻ cho bạn những kinh nghiệm quý báu của bản thân họ. Cuốn sách “ Khéo ăn nói sẽ có được thiên hạ” chắc chắn sẽ không làm bạn thất vọng.', 9, 1, '2023-08-25', '14.5x20.5 cm', 'Bìa mềm', 346, 1, '2023-08-04 15:53:02', '2023-08-12 02:26:56', NULL, NULL, NULL, 0),
+(9, 'Khéo Ăn Nói Sẽ Có Được Thiên Hạ (Tái Bản)', 104000, 7, 4, 6, 6, 'Trong xã hội thông tin hiện đại, sự im lặng không còn là vàng nữa, nếu không biết cách giao tiếp thì dù là vàng cũng sẽ bị chôn vùi. Trong cuộc đời một con người, từ xin việc đến thăng tiến, từ tình yêu đến hôn nhân, từ tiếp thị cho đến đàm phán, từ xã giao đến làm việc… không thể không cần đến kĩ năng và khả năng giao tiếp. Khéo ăn khéo nói thì đi đâu, làm gì cũng gặp thuận lợi. Không khéo ăn nói, bốn bề đều là trở ngại khó khăn.\r\n \r\n\r\nĐã bao giờ đánh mất một công việc, bạn bỏ lỡ một mối quan hệ tuyệt vời, hay đơn giản là bạn cảm thấy khó nói chuyện với mọi người. Bạn có bao giờ nghĩ là do kĩ năng nói chuyện của mình chưa tốt, chưa thuyết phục được mọi người. Bạn đổ lỗi cho số phận và vận may của mình chưa đến. Hãy dừng việc than thân trách phận và hành động để thay đòi chính mình.\r\n\r\n \r\n\r\nVậy làm thế nào để cải thiện và tránh gặp phải những tình huống như trên? Làm thế nào để ăn nói khéo léo? Có phương pháp và quy luật nào được áp dụng khi giao tiếp không? Có nguyên tắc và bí quyết nào cho các cuộc nói chuyện không? Trong những tình huống khác nhau, với những người khác nhau thì phải nói chuyện như thế nào, và làm sao để trình bày những điều khó nói?  \r\n\r\n \r\n\r\nCuốn sách Khéo ăn nói sẽ có được thiên hạ của Trác Nhã sẽ giải đáp cho bạn đọc những câu hỏi đó. Cuốn sách với ngôn từ rõ ràng, gần gũi với cuộc sống sẽ mang đến những kĩ năng và phương pháp giao tiếp thực dụng, chắc chắn sẽ giúp ích được cho bạn đọc.\r\n\r\n \r\n\r\nGiá trị của cuốn sách nằm ở chỗ tác giả đã dốc hết tâm sức nghiên cứu về các kĩ năng và quy tắc giao tiếp để đúc kết, truyền tải vào trong những trang sách khiến cho người đọc cảm thấy cuốn hút, và học hỏi được nhiều kĩ năng giúp cho bạn đọc tự tin và thành công trong việc giao tiếp.\r\n\r\n \r\n\r\nXây dựng mối quan hệ nhờ tài ăn nói\r\nTừ trước đến nay, trong xã hội, giao tiếp đang là một trong những điều mà ai cũng phải đối mặt, đặc biệt là các bạn trẻ, những bạn đang bước chân đang cần chứng tỏ năng lực của mình trước cuộc sống, mọi người. Chúng ta ngày càng phải giao tiếp với rất nhiều người. Sử dụng ngôn ngữ khéo léo, thân thiện chính là cách quan trọng nhất để xóa bỏ tâm lí đề phòng của đối phương và rút ngắn khoảng cách giữa hai bên, giúp cho mọi người tin tưởng bạn hơn và từ đó sẵn sàng giúp đỡ bạn trong công việc và học  tập.\r\n\r\n \r\n\r\nHơn nữa để thành công, bạn không được bỏ qua một mối quan hệ nào trong xã hội, mỗi một người đến và đi trong cuộc đời bạn đều có thể cho bạn nhiều bài học, kinh nghiệm quý báu mà nó sẽ chắc chắn sẽ giúp ích cho bạn trong cuộc đời. Điều quan trọng là bạn phải ăn nói, giao tiếp như nào để người đó yêu quý bạn và sẵn sàng chia sẻ cho bạn những kinh nghiệm quý báu của bản thân họ. Cuốn sách “ Khéo ăn nói sẽ có được thiên hạ” chắc chắn sẽ không làm bạn thất vọng.', 7, 3, '2023-08-25', '14.5x20.5 cm', 'Bìa mềm', 346, 1, '2023-08-04 15:53:02', '2023-09-16 02:35:41', NULL, NULL, NULL, 0),
 (10, 'Không Diệt Không Sinh Đừng Sợ Hãi (Tái Bản 2022)', 129000, 7, 4, 5, 5, 'Nhiều người trong chúng ta tin rằng cuộc đời của ta bắt đầu từ lúc chào đời và kết thúc khi ta chết. Chúng ta tin rằng chúng ta tới từ cái Không, nên khi chết chúng ta cũng không còn lại gì hết. Và chúng ta lo lắng vì sẽ trở thành hư vô.\r\n\r\nBụt có cái hiểu rất khác về cuộc đời. Ngài hiểu rằng sống và chết chỉ là những ý niệm không có thực. Coi đó là sự thực, chính là nguyên do gây cho chúng ta khổ não. Bụt dạy không có sinh, không có diệt, không tới cũng không đi, không giống nhau cũng không khác nhau, không có cái ngã thường hằng cũng không có hư vô. Chúng ta thì coi là Có hết mọi thứ. Khi chúng ta hiểu rằng mình không bị hủy diệt thì chúng ta không còn lo sợ. Đó là sự giải thoát. Chúng ta có thể an hưởng và thưởng thức đời sống một cách mới mẻ.', 0, 2, '2023-07-31', '14.5x20.5 cm', 'Bìa mềm', 289, 1, '2023-08-04 15:57:01', '2023-08-12 02:26:56', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
@@ -462,8 +474,32 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `remember_token`, `created_at`, `updated_at`, `status`, `avatar`, `provider`, `provider_id`, `access_token`) VALUES
 (1, 'Test', 'test@gmail.com', NULL, '123456', '0123456789', '', '2023-05-21 19:05:39', '2023-07-23 16:47:37', 1, NULL, NULL, NULL, NULL),
-(2, 'NGUYỄN NGỌC ÁNH', 'anhnn.ptit17@gmail.com', NULL, '$2y$10$z4F8HzYWeMOCQbYG3zyNueAM0tFK6GAKPO9zMbCtKM7IIaEkieKAu', '0971208091', 'GeGfpoQm2BaMlXJG2aWfeCJqIGex188ADQFWPlET9NuiBhhKCFl6bxXKjHuD', '2023-07-30 02:10:01', '2023-07-30 02:10:01', 1, NULL, NULL, NULL, NULL),
-(3, 'Nguyễn Ngọc B19DCCN052-Ánh', 'nguyenngocanh1982001@gmail.com', NULL, '', NULL, '10Fd5Vj6Ip0yWkPpiZfRrqP7HidSQNy7fAfoMJO7uGdWDImSLfACkuyPUefu', '2023-08-14 16:53:24', '2023-08-14 16:55:52', 1, 'https://lh3.googleusercontent.com/a/AAcHTtcnOo3DmFsZKN2uOO3Vj6CS2qoNsF9CdzjyYIDFH6dWPU0=s96-c', 'google', '105321784305426441212', 'ya29.a0AfB_byCyyidpIfxQ1IU4EU4C8n1ty2ffIVreDlsG7UqpnozUG1OlKHU7t8PMaMImnRBmUVjZdqrgDckvh6RwwXmXwYds8kxOUMFYAPGGlW5Wcdfii9T7u47-Sx_3aVbW_4ZPRoSwZrJWzOFFZ2ta0aq81YN0aCgYKAbISARISFQHsvYlsNYneAWyBCvuj_DUjcJ3YMQ0163');
+(2, 'NGUYỄN NGỌC ÁNH', 'anhnn.ptit17@gmail.com', NULL, '$2y$10$z4F8HzYWeMOCQbYG3zyNueAM0tFK6GAKPO9zMbCtKM7IIaEkieKAu', '0971208091', 'GeGfpoQm2BaMlXJG2aWfeCJqIGex188ADQFWPlET9NuiBhhKCFl6bxXKjHuD', '2023-07-30 02:10:01', '2023-08-21 07:07:42', 1, 'https://lh3.googleusercontent.com/a/AAcHTtfUdVasy0qSdXEITL-pxXDHtUmiFKowAH73OwktcNedpw=s96-c', 'google', '118354699430352897110', 'ya29.a0AfB_byBCgtSOzFGl3CTt2y-2aD_8_NRzUX6Ql4ows_4tOTRmnxe_L-xhUx9drMJffyCcYADBO4peJ7WTNE77WJ2PJ2E6_pNcf-Qqkazo1CVVQwXKz0v6XY_8opPPyYtlNf54xrAKNEirKiBh6seCYGTeDjzJ5Xf1WL8rOgaCgYKAdsSARASFQHsvYls7X5Y3V9KVFdv8m1h6J6gFA0173'),
+(3, 'Nguyễn Ngọc B19DCCN052-Ánh', 'nguyenngocanh1982001@gmail.com', NULL, '', NULL, 'IMRpsevYprDWgqhEeDcEwe5xDRs65Bwwg0Ta9BFsdfNYFmQ3eKxKvl2xTGay', '2023-08-14 16:53:24', '2023-08-14 16:55:52', 1, 'https://lh3.googleusercontent.com/a/AAcHTtcnOo3DmFsZKN2uOO3Vj6CS2qoNsF9CdzjyYIDFH6dWPU0=s96-c', 'google', '105321784305426441212', 'ya29.a0AfB_byCyyidpIfxQ1IU4EU4C8n1ty2ffIVreDlsG7UqpnozUG1OlKHU7t8PMaMImnRBmUVjZdqrgDckvh6RwwXmXwYds8kxOUMFYAPGGlW5Wcdfii9T7u47-Sx_3aVbW_4ZPRoSwZrJWzOFFZ2ta0aq81YN0aCgYKAbISARISFQHsvYlsNYneAWyBCvuj_DUjcJ3YMQ0163');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `user_click_products`
+--
+
+CREATE TABLE `user_click_products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_token` text NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `click` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user_click_products`
+--
+
+INSERT INTO `user_click_products` (`id`, `user_token`, `product_id`, `click`, `created_at`, `updated_at`) VALUES
+(1, '005fa00ec22b9deb52b0300acbdbe4bfd419f0df604b9e86929c57db0aed73ab', 10, 2, '2023-09-19 08:44:19', '2023-09-19 08:49:07'),
+(2, '005fa00ec22b9deb52b0300acbdbe4bfd419f0df604b9e86929c57db0aed73ab', 9, 1, '2023-09-19 08:45:14', '2023-09-19 08:45:14'),
+(3, '005fa00ec22b9deb52b0300acbdbe4bfd419f0df604b9e86929c57db0aed73ab', 8, 1, '2023-09-19 08:45:29', '2023-09-19 08:45:29');
 
 -- --------------------------------------------------------
 
@@ -646,6 +682,13 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Chỉ mục cho bảng `user_click_products`
+--
+ALTER TABLE `user_click_products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_click_products_product_id_index` (`product_id`);
+
+--
 -- Chỉ mục cho bảng `vouchers`
 --
 ALTER TABLE `vouchers`
@@ -691,7 +734,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -709,13 +752,13 @@ ALTER TABLE `medias`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `parent_categories`
@@ -763,6 +806,12 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `user_click_products`
+--
+ALTER TABLE `user_click_products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -823,6 +872,12 @@ ALTER TABLE `ratings`
 --
 ALTER TABLE `replies`
   ADD CONSTRAINT `replies_comment_id_foreign` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `user_click_products`
+--
+ALTER TABLE `user_click_products`
+  ADD CONSTRAINT `user_click_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `wishlists`
