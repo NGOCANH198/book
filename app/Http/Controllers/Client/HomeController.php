@@ -14,9 +14,10 @@ class HomeController extends Controller
         $products = UserClickProduct::get()->toArray();
         if (count($products) > 0) {
             $search = max(array_column($products, 'click'));
-            $selectedId = array_filter($products, function ($v) use ($search) {
+            $products = array_filter($products, function ($v) use ($search) {
                 return $v['click'] == $search;
-            }, ARRAY_FILTER_USE_BOTH)[0]['product_id']; // trả về id sản phẩm click cao nhất
+            }, ARRAY_FILTER_USE_BOTH);
+            $selectedId = reset($products)['product_id']; // trả về id sản phẩm click cao nhất
             $productSimilarity = new ProductSimilarity(Product::get()->toArray());
             $similarityMatrix = $productSimilarity->calculateSimilarityMatrix();
             $recommendProducts = $productSimilarity->getProductsSortedBySimilarity($selectedId, $similarityMatrix);

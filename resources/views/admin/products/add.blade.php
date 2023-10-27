@@ -81,7 +81,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="supplier_id">Nhà cung cấp: <span class="text-danger">*</span></label>
+                <label for="supplier_id">Nhà xuất bản: <span class="text-danger">*</span></label>
                 <select class="form-control" name="supplier_id" id="supplier_id">
                     @foreach ($suppliers as $supplier)
                         <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>

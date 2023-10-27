@@ -66,7 +66,7 @@
                                 style="text-decoration: none; color: black;" data-toggle="tooltip"
                                 data-placement="bottom" title="{{ $product->name }}">
                                 <img class="card-img-top anh" src="{{ asset(@$product->image->first()->url) }}"
-                                    alt="{{ $product->name }}">
+                                    alt="{{ $product->name }}" style="height: 30vh">
                                 <div class="card-body noidungsp mt-3">
                                     <h3 class="card-title ten">{{ $product->name }}</h3>
                                     <small class="tacgia text-muted">{{ $product->author_name }}</small>
@@ -121,7 +121,7 @@
                                         style="text-decoration: none; color: black;" data-toggle="tooltip"
                                         data-placement="bottom" title="{{ $product->name }}">
                                         <img class="card-img-top anh" src="{{ asset(@$product->image->first()->url) }}"
-                                            alt="{{ $product->name }}">
+                                            alt="{{ $product->name }}" style="height: 30vh">
                                         <div class="card-body noidungsp mt-3">
                                             <h3 class="card-title ten">{{ $product->name }}</h3>
                                             <small class="tacgia text-muted">{{ $product->author_name }}</small>
@@ -167,7 +167,7 @@
                                     style="text-decoration: none; color: black;" data-toggle="tooltip"
                                     data-placement="bottom" title="{{ $product->name }}">
                                     <img class="card-img-top anh" src="{{ asset(@$product->image->first()->url) }}"
-                                        alt="tung-buoc-chan-no-hoa">
+                                        alt="tung-buoc-chan-no-hoa" style="height: 30vh">
                                     <div class="card-body noidungsp mt-3">
                                         <h3 class="card-title ten">{{ $product->name }}</h3>
                                         <small

@@ -310,7 +310,7 @@
                                 style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
                                 title="{{ $product->name }}">
                                 <img class="card-img-top anh" src="{{ asset(@$product->image->first()->url) }}"
-                                    alt="{{ $product->name }}">
+                                    alt="{{ $product->name }}"  style="height: 30vh">
                                 <div class="card-body noidungsp mt-3 text-center">
                                     <h6 class="card-title ten">{{ $product->name }}</h6>
                                     <small
