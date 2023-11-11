@@ -53,7 +53,7 @@
                         <div class="tab-pane fade show active pl-4 " id="nav-thanhtoan" role="tabpanel"
                             aria-labelledby="nav-thanhtoan-tab">
                             <div class="row">
-                                <div class="col-lg-9 col-md-6">
+                                <div class="col-lg-8 col-md-6">
                                     <div class="offset-md-4 mt-3">
                                         <h3 class="account-header text-center">Thanh toán</h3>
                                     </div>
@@ -99,7 +99,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
+                                <div class="col-lg-4 col-md-6">
                                     <div class="checkout__order">
                                         <div class="mt-3">
                                             <h3 class="account-header">Chi tiết đơn hàng</h3>

@@ -75,12 +75,12 @@
                                             <input class="col-md-4" type="password" name="confirmpass" id="confirmpass">
                                         </div>
                                     </div>
-                                    <div class="capnhat my-3">
-                                        <div class="row">
-                                            <button type="submit"
-                                                class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4">Cập
-                                                nhật</button>
-                                        </div>
+                                </div>
+                                <div class="capnhat my-3">
+                                    <div class="row">
+                                        <button type="submit"
+                                            class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4">Cập
+                                            nhật</button>
                                     </div>
                                 </div>
                             </form>
