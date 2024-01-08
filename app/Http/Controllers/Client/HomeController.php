@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use App\ProductSimilarity;
 use App\Models\Product;
 use App\Models\UserClickProduct;
+use Cookie;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $products = UserClickProduct::get()->toArray();
+        $userToken = Cookie::get('user_token');
+        if (!is_null($userToken)) {
+            $products = UserClickProduct::where('user_token', $userToken)->get()->toArray();
+        } else {
+            $products = UserClickProduct::get()->toArray();
+        }
         if (count($products) > 0) {
             $search = max(array_column($products, 'click'));
             $products = array_filter($products, function ($v) use ($search) {
