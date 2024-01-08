@@ -32,6 +32,7 @@ class SendUpdateOrder extends Mailable
      */
     public function build()
     {
+
         return $this->subject('TRẠNG THÁI ĐƠN HÀNG')->view('admin.orders.mail')->with(['order' => $this->order, 'status' => $this->status]);
     }
 }

@@ -38,7 +38,7 @@ class ProductSimilarity
         return $matrix;
     }
 
-    // Lấy ra danh sách sản phẩm có điểm tương đồng > 0.5 (tương đồng tầm 50% trở đi)
+    // Lấy ra danh sách sản phẩm có điểm tương đồng > 0.6(tương đồng tầm 50% trở đi)
     public function getProductsSortedBySimilarity($productId, $matrix)
     {   
         $similarities = $matrix['product_id_' . $productId];
