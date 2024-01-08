@@ -16,7 +16,7 @@ class HomeController extends Controller
         if (!is_null($userToken)) {
             $products = UserClickProduct::where('user_token', $userToken)->get()->toArray();
         } else {
-            $products = UserClickProduct::get()->toArray();
+            $products = [];
         }
         if (count($products) > 0) {
             $search = max(array_column($products, 'click'));
